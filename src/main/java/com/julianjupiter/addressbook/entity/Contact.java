@@ -1,12 +1,9 @@
 package com.julianjupiter.addressbook.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "contact")
@@ -27,6 +24,11 @@ public class Contact {
     private OffsetDateTime createdAt;
     @Column(name = "updated_at")
     private OffsetDateTime updatedAt;
+
+
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Facture> factures = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -98,5 +100,24 @@ public class Contact {
     public Contact setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
+    }
+
+    public List<Facture> getFactures() {
+        return factures;
+    }
+
+    public void setFactures(List<Facture> factures) {
+        this.factures = factures;
+    }
+
+    // Méthodes utilitaires pour gérer la relation
+    public void addFacture(Facture facture) {
+        factures.add(facture);
+        facture.setContact(this);
+    }
+
+    public void removeFacture(Facture facture) {
+        factures.remove(facture);
+        facture.setContact(null);
     }
 }
