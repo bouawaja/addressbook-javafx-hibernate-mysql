@@ -32,12 +32,12 @@
         <dependency>
             <groupId>com.julianjupiter.viewfx</groupId>
             <artifactId>viewfx</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jfxtras</groupId>
             <artifactId>jmetro</artifactId>
-            <version>11.6.13</version>
+            <version>11.6.16</version>
         </dependency>
         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
@@ -74,6 +74,20 @@
             <artifactId>jakarta.el</artifactId>
             <version>3.0.3</version>
         </dependency>
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.3</version>
+        </dependency>
+
+        <!-- H2 Database -->
     </dependencies>
     <build>
         <plugins>
